@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+ <head>
+  <title> Hello World Google Map API LV3 </title>
+
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfgpIhXtMr0LUMBjKoJsd6eeUYxvEUiAg&callback=initMap"
+type="text/javascript"></script>
+<script src="geoxml3-master/kmz/geoxml3.js"></script>
+
+
+<script language="JavaScript">
+	function initMap() { 
+	var myOptions = {
+	  zoom: 5,
+	  center: new google.maps.LatLng(15.000682,103.728207),
+	  mapTypeId: google.maps.MapTypeId.SATELLITE
+	};
+	var map = new google.maps.Map(document.getElementById('map_canvas'),
+		myOptions);
+
+
+    var myParser = new geoXML3.parser({map: map});
+    myParser.parse('test.kml');
+
+	}
+</script>
+ </head>
+
+ <body onload="initMap()">
+  
+<div id="map_canvas" style="width:800px;height:450px;"></div>
+
+ </body>
+</html>
